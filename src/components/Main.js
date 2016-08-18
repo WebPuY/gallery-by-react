@@ -25,7 +25,7 @@ var AppComponent = React.createClass ({
     return (
       <section className="stage">
         <section className="img-sec">
-
+          test
         </section>
         <nav className="controller-nav">
 

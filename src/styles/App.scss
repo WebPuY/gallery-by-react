@@ -1,4 +1,9 @@
 /* Base Application Styles */
+@font-face{
+    font-family: "icons-turn-arraw";
+    src:url("../fonts/icons/turn-arrow.eot") format("embedded-opentype"),url("../fonts/icons/turn-arrow.woff") format("woff"),url("../fonts/icons/turn-arrow.ttf") format("true-type"),url("../fonts/icons/turn-arrow.svg") format("svg");
+}
+
 html,body {
   width:100%;
   height:100%;
@@ -94,6 +99,46 @@ html,body {
   z-index: 101;
   width:100%;
   text-align: center;
+
+  @at-root{
+    .controller-unit{
+        display: inline-block;
+        width:30px;
+        height:30px;
+        margin: 0 5px;
+
+        text-align: center;
+        cursor:pointer;
+        background-color:#aaa;
+        border-radius:50%;
+        transform: scale(.5);
+        vertical-align: middle;
+        transition: transform .6s ease-in-out,background-color .3s;
+        //是否是居中态
+        &.is-center{
+            transform: scale(1);
+            background-color:#888;
+
+            //Icon font代替图片
+            &::after{
+                color:#fff;
+                line-height: 30px;
+                font-family: "icons-turn-arraw";
+                content:"\e600";
+                font-size: 80%;
+
+                //浏览器字体渲染：使字体边缘过度更平滑，在屏幕上需要将字体栅格化为一个个像素点。灰阶渲染和亚像素渲染
+                -webkit-font-smoothing:antialiased; //灰阶平滑
+                -moz-osx-font-smoothing:grayscale;
+            }
+
+            &.is-inverse{
+                background-color:#555;
+                transform:rotateY(180deg);
+            }
+        }
+    }
+  }
 }
 // controller -- end
 
